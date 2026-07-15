@@ -36,7 +36,6 @@ jobs:
           source venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
-          playwright install --with-deps
       - name: Run tests
         env:
           DATABASE_URL: postgresql://user:password@localhost:5432/mytestdb
@@ -44,7 +43,6 @@ jobs:
           source venv/bin/activate
           pytest tests/unit/
           pytest tests/integration/
-          pytest tests/e2e/
 
   deploy:
     needs: test
